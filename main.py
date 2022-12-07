@@ -151,7 +151,8 @@ def get_user(id):
 
 fluxo_conversasional = ConversationHandler(  # Cria Objeto de conversasão
     entry_points=[  # Parametro que determina as ações de entrada
-        CommandHandler("iniciar", iniciar_handler)  # Objeto que trata o comando /iniciar
+        CommandHandler("iniciar", iniciar_handler), # Objeto que trata o comando /iniciar
+        CommandHandler("start", iniciar_handler)  # Objeto que trata o comando /iniciar
     ],
     states={  # Parametro que indica os estados da conversa
         1: [  # estado 1
@@ -166,7 +167,7 @@ fluxo_conversasional = ConversationHandler(  # Cria Objeto de conversasão
 )
 
 if __name__ == '__main__':
-    token = '5470615575:AAFtMDZFpk_7opizNzuUHxnzVQwVF5i1kx4'  # Token obtido pelo BotFather
+    token = ''  # Token obtido pelo BotFather
     updater = Updater(token, use_context=True)  # Cria bot
     updater.dispatcher.add_handler(fluxo_conversasional)  # Adiciona Comportamento ao bot
     updater.start_polling()  # Inicia Bot
